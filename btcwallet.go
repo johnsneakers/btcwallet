@@ -278,6 +278,6 @@ func startChainRPC(certs []byte) (*chain.RPCClient, error) {
 		return nil, err
 	}
 
-	err = rpcc.Start()
+	//err = rpcc.Start()
 	return rpcc, err
 }

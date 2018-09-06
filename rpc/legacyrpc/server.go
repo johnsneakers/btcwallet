@@ -281,7 +281,6 @@ func (s *Server) handlerClosure(request *btcjson.Request) lazyHandler {
 		s.chainClient = chainClient
 	}
 	s.handlerMu.Unlock()
-	fmt.Println("chainClient==>",chainClient)
 	return lazyApplyHandler(request, wallet, chainClient)
 }
 
