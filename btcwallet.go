@@ -150,7 +150,7 @@ func rpcClientConnectLoop(legacyRPCServer *legacyrpc.Server, loader *wallet.Load
 	if !cfg.UseSPV {
 		certs = readCAFile()
 	}
-
+	fmt.Println("legacyRPCServer==>",legacyRPCServer)
 	for {
 		var (
 			chainClient chain.Interface
