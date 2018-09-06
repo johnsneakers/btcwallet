@@ -205,6 +205,14 @@ func lazyApplyHandler(request *btcjson.Request, w *wallet.Wallet, chainClient ch
 
 	// Fallback to RPC passthrough
 	return func() (interface{}, *btcjson.RPCError) {
+		resp, err := client.RawRequest(request.Method,
+			request.Params)
+		if err != nil {
+			return nil, jsonError(err)
+		}
+		return &resp, nil
+
+		
 		if chainClient == nil {
 			return nil, &btcjson.RPCError{
 				Code:    -1,
