@@ -261,6 +261,7 @@ func (s *Server) Stop() {
 func (s *Server) SetChainServer(chainClient chain.Interface) {
 	s.handlerMu.Lock()
 	s.chainClient = chainClient
+	fmt.Println("chainClient:", chainClient)
 	s.handlerMu.Unlock()
 }
 
