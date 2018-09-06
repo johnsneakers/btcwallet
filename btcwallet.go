@@ -155,7 +155,7 @@ func rpcClientConnectLoop(legacyRPCServer *legacyrpc.Server, loader *wallet.Load
 			chainClient chain.Interface
 			err         error
 		)
-
+		fmt.Println("debug0")
 		if cfg.UseSPV {
 			var (
 				chainService *neutrino.ChainService
@@ -193,7 +193,7 @@ func rpcClientConnectLoop(legacyRPCServer *legacyrpc.Server, loader *wallet.Load
 				continue
 			}
 		}
-
+		fmt.Println("debug1")
 		// Rather than inlining this logic directly into the loader
 		// callback, a function variable is used to avoid running any of
 		// this after the client disconnects by setting it to nil.  This
@@ -207,6 +207,7 @@ func rpcClientConnectLoop(legacyRPCServer *legacyrpc.Server, loader *wallet.Load
 				legacyRPCServer.SetChainServer(chainClient)
 			}
 		}
+		fmt.Println("debug2")
 		mu := new(sync.Mutex)
 		loader.RunAfterLoad(func(w *wallet.Wallet) {
 			mu.Lock()
