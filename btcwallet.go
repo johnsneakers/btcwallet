@@ -80,6 +80,9 @@ func walletMain() error {
 		return err
 	}
 
+	if legacyRPCServer == nil {
+		log.Errorf("legacyRPCServer is nil!!")
+	}
 	// Create and start chain RPC client so it's ready to connect to
 	// the wallet when loaded later.
 	if !cfg.NoInitialLoad {
