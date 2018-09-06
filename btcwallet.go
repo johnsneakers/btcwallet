@@ -156,8 +156,9 @@ func rpcClientConnectLoop(legacyRPCServer *legacyrpc.Server, loader *wallet.Load
 			chainClient chain.Interface
 			err         error
 		)
-		fmt.Println("debug0")
+
 		if cfg.UseSPV {
+			fmt.Println("isUserSpv =====>",cfg.UseSPV)
 			var (
 				chainService *neutrino.ChainService
 				spvdb        walletdb.DB
@@ -189,6 +190,7 @@ func rpcClientConnectLoop(legacyRPCServer *legacyrpc.Server, loader *wallet.Load
 			}
 		} else {
 			chainClient, err = startChainRPC(certs)
+			fmt.Println("chainClient =====>",chainClient, " err ====>",err)
 			if err != nil {
 				log.Errorf("Unable to open connection to consensus RPC server: %v", err)
 				continue
