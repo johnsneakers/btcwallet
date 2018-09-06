@@ -98,11 +98,12 @@ func (c *RPCClient) BackEnd() string {
 // function gives up, and therefore will not block forever waiting for the
 // connection to be established to a server that may not exist.
 func (c *RPCClient) Start() error {
+	log.Info("start connect server....")
 	err := c.Connect(c.reconnectAttempts)
 	if err != nil {
 		return err
 	}
-
+	log.Info("start connect server succ....")
 	// Verify that the server is running on the expected network.
 	net, err := c.GetCurrentNet()
 	if err != nil {

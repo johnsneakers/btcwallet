@@ -278,7 +278,6 @@ func startChainRPC(certs []byte) (*chain.RPCClient, error) {
 		return nil, err
 	}
 
-	log.Infof("connection to %v succ!", cfg.RPCConnect)
 	err = rpcc.Start()
 	return rpcc, err
 }
