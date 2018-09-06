@@ -184,7 +184,7 @@ func lazyApplyHandler(request *btcjson.Request, w *wallet.Wallet, chainClient ch
 			default:
 				return nil, &btcjson.RPCError{
 					Code:    -1,
-					Message: "Chain RPC is inactive",
+					Message: "[1]Chain RPC is inactive",
 				}
 			}
 		}
@@ -208,7 +208,7 @@ func lazyApplyHandler(request *btcjson.Request, w *wallet.Wallet, chainClient ch
 		if chainClient == nil {
 			return nil, &btcjson.RPCError{
 				Code:    -1,
-				Message: "Chain RPC is inactive",
+				Message: "[2]Chain RPC is inactive",
 			}
 		}
 		switch client := chainClient.(type) {
@@ -222,7 +222,7 @@ func lazyApplyHandler(request *btcjson.Request, w *wallet.Wallet, chainClient ch
 		default:
 			return nil, &btcjson.RPCError{
 				Code:    -1,
-				Message: "Chain RPC is inactive",
+				Message: "[3]Chain RPC is inactive",
 			}
 		}
 	}
